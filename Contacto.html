@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">TecnicoAngeles</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    <a class="nav-link" href="Servicio.html">Servicio</a>
+                    <a class="nav-link" href="cableando estructurado.html">Cableado Estructurado RED</a>
+                    <a class="nav-link" href="Contacto.html">Contacto</a>
+                    <a class="nav-link" href="Producto.html">Producto</a>
+                    <a class="nav-link" href="Manual de Convivecia.html">Manual de la Empresa</a>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <img src="img/Logo.png" class="img-fluid" alt="...">
+
+    <div class="container d-flex flex-column align-items-center justify-center" style="min-height: 80vh;">
+        <h1 class="T_1">Contacto</h1>
+
+        <form id="formulario" class="w-100"
+            style="max-width: 500px; margin-top:20px; display:flex; flex-direction:column; gap:15px;">
+
+            <div class="input-group">
+                <span class="input-group-text">Nombre</span>
+                <input type="text" id="nombre" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text">Email</span>
+                <input type="text" id="email" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text">Telefono</span>
+                <input type="text" id="telefono" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text">Solicitud</span>
+                <input type="text" id="mensaje" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text">Fecha</span>
+                <input type="date" id="fecha" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var telefono = document.getElementById("telefono").value;
+            var mensaje = document.getElementById("mensaje").value;
+            var fecha = document.getElementById("fecha").value;
+
+            var numero = "573175702147";
+
+            var texto = "Nueva solicitud:%0A%0A" +
+                "Nombre: " + nombre + "%0A" +
+                "Email: " + email + "%0A" +
+                "Telefono: " + telefono + "%0A" +
+                "Solicitud: " + mensaje + "%0A" +
+                "Fecha: " + fecha;
+
+            var url = "https://wa.me/" + numero + "?text=" + texto;
+
+            window.open(url, "_blank");
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>

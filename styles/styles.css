@@ -1,0 +1,64 @@
+.T_1 {
+    margin: 30px;
+    padding: 40px;
+    text-align: center;
+    color: blue;
+    font-size: 50px;
+}
+
+.P_1 {
+    margin: 30px;
+}
+
+.T_2 {
+    margin: 30px;
+    padding: 40px;
+    color: blue;
+    font-size: 50px;
+
+}
+
+.T_3 {
+    margin: 20px;
+    padding: 20px;
+    color: blue;
+    font-size: 30px;
+}
+
+.T_4 {
+    margin: 20px;
+    padding: 20px;
+    color: rgb(0, 145, 255);
+    font-size: 30px;
+}
+
+.division_1 {
+    display: flex;
+    gap: 30px;
+}
+
+img {
+    border-radius: 30px;
+    width: 200px;
+}
+
+.division_2 {
+    display: flex;
+    gap: 30px;
+}
+
+
+.division_2 table {
+    width: 400%;
+    border-collapse: collapse;
+}
+
+.division_2 td {
+    border: 1px solid blue;
+    padding: 20px;
+    vertical-align: top;
+}
+
+.division_2 h3 {
+    color: blue;
+}
