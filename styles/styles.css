@@ -62,3 +62,9 @@ img {
 .division_2 h3 {
     color: blue;
 }
+
+.container_footer {
+    background-color: blanchedalmond;
+    color: navy;
+    bottom: 0;
+}
