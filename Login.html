@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">TecnicoAngeles</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                    <a class="nav-link" href="Servicio.html">Servicio</a>
+                    <a class="nav-link" href="cableando estructurado.html">Cableado Estructurado RED</a>
+                    <a class="nav-link" href="Contacto.html">Contacto</a>
+                    <a class="nav-link" href="Producto.html">Producto</a>
+                    <a class="nav-link" href="Manual de Convivecia.html">Manual de la Empresa</a>
+                    <a class="nav-link active" aria-current="page" href="Login.html">Login</a>
+                    <a class="nav-link" href="Registro.html">Registro</a>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <img src="img/Logo.png" alt="Logo" width="150">
+    <h1 class="T_1"><em>Iniciar sesión</em></h1>
+    <div class="container d-flex flex-column align-items-center justify-center" style="min-height: 80vh;">
+        <form id="loginForm">
+            <div>
+                <label for="loginUsername"><strong>Usuario:</strong></label>
+                <input type="text" id="loginUsername" name="username" required />
+            </div>
+
+            <div>
+                <label for="loginPassword"><strong>Contraseña:</strong></label>
+                <input type="password" id="loginPassword" name="password" required />
+            </div>
+
+            <button type="submit"><strong>Entrar</strong></button>
+        </form>
+
+        <p id="loginMessage"></p>
+
+        <script src="./js/auth.js"></script>
+        <script>
+            const loginForm = document.getElementById("loginForm");
+            const loginMessage = document.getElementById("loginMessage");
+
+            loginForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById("loginUsername").value.trim();
+                const password = document.getElementById("loginPassword").value;
+
+                const result = await loginUser({ username, password });
+
+                loginMessage.textContent = result.message;
+                loginMessage.style.color = result.ok ? "green" : "red";
+            });
+        </script>
+    </div>
+
+
+    <script src="logR.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
