@@ -63,7 +63,7 @@ img {
     color: blue;
 }
 
-.container_footer {
+.bg-dark text-white text-center p-3 mt-4{
     background-color: blanchedalmond;
     color: navy;
     bottom: 0;
