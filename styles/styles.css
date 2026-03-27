@@ -64,7 +64,7 @@ img {
 }
 
 .bg-dark text-white text-center p-3 mt-4{
-    background-color: blanchedalmond;
-    color: navy;
+    background-color: rgb(205, 255, 241);
+    color: rgb(0, 53, 128);
     bottom: 0;
 }
