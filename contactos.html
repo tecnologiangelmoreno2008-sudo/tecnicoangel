@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Contactos</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body class="table-responsive bg-white p-4 shadow rounded">
-    <div class="table-responsive bg- white p-4 shadow rounded">
+<body>
+   <div class="table-responsive bg- white p-4 shadow rounded">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
                 <img src="imgA/Logo.png" alt="logo" width="90">
@@ -37,54 +37,66 @@
         </nav>
    </div>
 
+        <div class="container d-flex flex-column align-items-center justify-center" style="min-height: 80vh;">
+            <h1 class="T_01">Contacto</h1>
 
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="imgA/programando.png" class="d-block w-100" alt="...">
+            <form id="formulario" class="w-100"
+                style="max-width: 500px; margin-top:20px; display:flex; flex-direction:column; gap:15px;">
+
+                <div class="input-group">
+                    <span class="input-group-text">Nombre</span>
+                    <input type="text" id="nombre" class="form-control">
                 </div>
-                <div class="carousel-item">
-                    <img src="imgA/red.png" class="d-block w-100" alt="...">
+
+                <div class="input-group">
+                    <span class="input-group-text">Email</span>
+                    <input type="text" id="email" class="form-control">
                 </div>
-                <div class="carousel-item">
-                    <img src="imgA/red y red.png" class="d-block w-100" alt="...">
+
+                <div class="input-group">
+                    <span class="input-group-text">Telefono</span>
+                    <input type="text" id="telefono" class="form-control">
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
+                <div class="input-group">
+                    <span class="input-group-text">Solicitud</span>
+                    <input type="text" id="mensaje" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text">Fecha</span>
+                    <input type="date" id="fecha" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+
+            </form>
         </div>
 
-        <div>
-            <h1 class="T_01">Bienvenidos al Punto Tecnologico TecnicoAngeles </h1>
+        <script>
+            document.getElementById("formulario").addEventListener("submit", function (e) {
+                e.preventDefault();
 
-            <p class="P_01"><em>Ofrecemos soluciones profesionales en sistemas y teleinformática, brindando soporte
-                    técnico
-                    confiable,
-                    rápido
-                    y seguro para hogares y pequeños negocios. Realizamos mantenimiento de hardware y software, limpieza
-                    y
-                    optimización de equipos, formateo e instalación de sistemas operativos, instalación de programas
-                    (Office,
-                    antivirus, utilidades y navegadores), organización de cableado UTP con canaletas, gestión de
-                    licencias
-                    de
-                    Windows y Office, y apoyo en publicidad y planes de marketing digital.</em></p>
-        </div>
+                var nombre = document.getElementById("nombre").value;
+                var email = document.getElementById("email").value;
+                var telefono = document.getElementById("telefono").value;
+                var mensaje = document.getElementById("mensaje").value;
+                var fecha = document.getElementById("fecha").value;
 
-        <div>
-            <h1 class="T_01">QUIENES SOMOS</h1>
-            <p class="P_01"><em>TecnicoAngeles es un emprendimiento dedicado al soporte técnico en sistemas y
-                    teleinformática. Nuestro
-                    objetivo es ofrecer un servicio responsable, eficiente y de calidad, enfocado en la satisfacción del
-                    cliente y el buen uso de la tecnología.</em></p>
-        </div>
+                var numero = "573175702147";
 
+                var texto = "Nueva solicitud:%0A%0A" +
+                    "Nombre: " + nombre + "%0A" +
+                    "Email: " + email + "%0A" +
+                    "Telefono: " + telefono + "%0A" +
+                    "Solicitud: " + mensaje + "%0A" +
+                    "Fecha: " + fecha;
+
+                var url = "https://wa.me/" + numero + "?text=" + texto;
+
+                window.open(url, "_blank");
+            });
+        </script>
         <hr>
         <footer class="bg-dark text-white text-center p-3 mt-4">
             <p><strong>Nombre de la Empresa:</strong> TécnicoAngeles <br>
@@ -97,9 +109,6 @@
             </p>
 
         </footer>
-
-    <script src="Javascript/script.js"></script>
-       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"></script>
