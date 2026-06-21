@@ -1,0 +1,199 @@
+================================================================================
+                    GUÍA DE INICIO RÁPIDO - TECNICOANGELES
+================================================================================
+
+Tu sistema de autenticación está listo para usar. Sigue estos pasos:
+
+================================================================================
+PASO 1: INSTALAR DEPENDENCIAS DEL SERVIDOR
+================================================================================
+
+📁 Navega a la carpeta del servidor:
+   
+   cd server
+
+💻 Windows:
+   ✓ Doble clic en: setup.bat
+   ✓ O ejecuta en terminal: pip install -r requirements.txt
+
+🐧 Linux/Mac:
+   ✓ Terminal: chmod +x setup.sh && ./setup.sh
+   ✓ O ejecuta: pip3 install -r requirements.txt
+
+================================================================================
+PASO 2: INICIAR EL SERVIDOR
+================================================================================
+
+💻 Windows:
+   ✓ Doble clic en: start.bat
+   ✓ O ejecuta en terminal: python app.py
+
+🐧 Linux/Mac:
+   ✓ Terminal: chmod +x start.sh && ./start.sh
+   ✓ O ejecuta: python3 app.py
+
+✅ Verás un mensaje como:
+   "WARNING: This is a development server. Do not use it in production!"
+   
+   Esto significa que el servidor está corriendo en: http://localhost:5000
+
+================================================================================
+PASO 3: ABRIR EL SITIO WEB
+================================================================================
+
+1. Abre el archivo: index.html
+2. Haz clic en "Login" o "Registro"
+3. ¡Prueba el sistema!
+
+📍 URLs disponibles:
+   - http://localhost:5000/api/health        (verificar servidor)
+   - http://localhost:5000/api/auth/login    (login)
+   - http://localhost:5000/api/auth/register (registro)
+
+================================================================================
+ESTRUCTURA DE CARPETAS
+================================================================================
+
+TecnicoAngel/
+├── 📄 index.html                 ← Página principal
+├── 📄 login.html                 ← Página de login
+├── 📄 registro.html              ← Página de registro
+│
+├── 📁 js/
+│   ├── config.js                 ← Configuración centralizada
+│   ├── auth.js                   ← Módulo de autenticación
+│   └── script.js                 ← Scripts principales
+│
+├── 📁 styles/
+│   └── styles.css                ← Estilos CSS
+│
+├── 📁 server/                    ← SERVIDOR FLASK
+│   ├── app.py                    ← Aplicación principal
+│   ├── usuarios.db               ← Base de datos (se crea automáticamente)
+│   ├── requirements.txt          ← Dependencias Python
+│   ├── start.bat                 ← Iniciar en Windows
+│   ├── start.sh                  ← Iniciar en Linux/Mac
+│   ├── setup.bat                 ← Instalar en Windows
+│   ├── setup.sh                  ← Instalar en Linux/Mac
+│   └── README.md                 ← Documentación del servidor
+│
+└── 📄 README.md                  ← Documentación completa
+
+================================================================================
+PROBLEMAS COMUNES Y SOLUCIONES
+================================================================================
+
+❌ "Port 5000 is already in use"
+   ✓ Cierra la otra aplicación que usa puerto 5000
+   ✓ O cambia el puerto en: server/app.py (línea: app.run(port=5001))
+
+❌ "No module named 'flask'"
+   ✓ Ejecuta: pip install -r requirements.txt
+   ✓ Asegúrate de estar en la carpeta: server/
+
+❌ "Module not found: 'flask_cors'"
+   ✓ Ejecuta: pip install Flask-CORS
+
+❌ No puedo iniciar sesión o registrarse
+   ✓ Verifica que el servidor está ejecutándose (http://localhost:5000/api/health)
+   ✓ Abre la consola del navegador (F12) para ver errores
+   ✓ Reinicia el servidor
+
+❌ Base de datos corrompida
+   ✓ Elimina: server/usuarios.db
+   ✓ Reinicia el servidor (se creará una nueva)
+
+================================================================================
+CAMBIAR URL DEL SERVIDOR
+================================================================================
+
+Si necesitas usar ngrok u otra URL:
+
+1. Edita: js/config.js
+   
+   Busca:
+   CONFIG.ENVIRONMENT = "development";
+   
+   Y cambia a:
+   CONFIG.ENVIRONMENT = "production";
+   CONFIG.SERVERS.production = "https://tu-url.ngrok-free.dev";
+
+2. O edita directamente:
+   CONFIG.SERVERS.development = "http://tu-url-personalizada.com";
+
+================================================================================
+USO CON NGROK (ACCESO PÚBLICO)
+================================================================================
+
+Si quieres que otros accedan desde Internet:
+
+1. Instala ngrok desde: https://ngrok.com
+
+2. En otra terminal ejecuta:
+   ngrok http 5000
+
+3. Copia la URL que te muestra (algo como: https://abc123.ngrok-free.dev)
+
+4. En js/config.js:
+   CONFIG.SERVERS.production = "https://abc123.ngrok-free.dev";
+   CONFIG.ENVIRONMENT = "production";
+
+5. ¡Ahora otros pueden acceder desde cualquier navegador!
+
+================================================================================
+USUARIOS DE PRUEBA
+================================================================================
+
+Puedes crear usuarios de prueba registrándote en la página de registro.
+Todos los datos se guardan en: server/usuarios.db
+
+Requisitos de contraseña:
+✓ Mínimo 6 caracteres
+✓ Al menos una letra
+✓ Al menos un número
+
+Ejemplo válido: usuario123
+
+================================================================================
+CARACTERÍSTICAS
+================================================================================
+
+✅ Registro de usuarios con validación
+✅ Login con tokens de sesión
+✅ Contraseñas hasheadas y seguras
+✅ Sesiones de 7 días
+✅ Base de datos SQLite
+✅ Logs de acceso
+✅ API REST
+✅ CORS habilitado
+✅ Interfaz moderna
+✅ Responsive (funciona en móviles)
+
+================================================================================
+DOCUMENTACIÓN COMPLETA
+================================================================================
+
+Para información detallada, abre:
+
+📖 README.md                    ← Descripción general
+📖 server/README.md            ← Documentación del servidor
+📖 server/INSTRUCCIONES.md     ← Instrucciones técnicas
+
+================================================================================
+CONTACTO Y SOPORTE
+================================================================================
+
+Empresa:  TécnicoAngeles
+Técnico:  Ángel A.R.M
+Teléfono: 3175702147 o 3217633207
+
+Lema: "Tu equipo queda funcionando correctamente para el mejor rendimiento"
+
+================================================================================
+
+Fecha: Mayo 31, 2024
+Versión: 1.0.0
+
+¡Tu sistema de autenticación está listo para usar!
+
+================================================================================

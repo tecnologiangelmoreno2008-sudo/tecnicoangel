@@ -1,112 +1,489 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Registrarse - TecnicoAngeles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .register-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 0;
+        }
+
+        .register-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .register-card h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input.error {
+            border-color: #dc3545;
+        }
+
+        .form-group input.success {
+            border-color: #28a745;
+        }
+
+        .validation-message {
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .validation-message.error {
+            color: #dc3545;
+            display: block;
+        }
+
+        .validation-message.success {
+            color: #28a745;
+            display: block;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-register:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-register:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .alert-message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 5px;
+            display: none;
+            animation: slideIn 0.3s ease-in;
+        }
+
+        .alert-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .alert-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            max-width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .password-requirements {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .requirement {
+            margin: 5px 0;
+        }
+
+        .requirement.met {
+            color: #28a745;
+        }
+
+        .requirement.unmet {
+            color: #dc3545;
+        }
+
+        .requirement::before {
+            content: "✗ ";
+            font-weight: bold;
+        }
+
+        .requirement.met::before {
+            content: "✓ ";
+        }
+    </style>
 </head>
 
-<body class="table-responsive bg-white p-4 shadow rounded">
-    <div class="table-responsive bg- white p-4 shadow rounded">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <img src="imgA/Logo.png" alt="logo" width="90">
-                <a class="navbar-brand fw-bold" href="index.html">TecnicoAngel</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Manual de Convivencia.html">Manual de
-                                Convivencia</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link active" href="Servicio.html">Servicio</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="Producto.html">Producto</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="contactos.html">Contactos</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="Cableado Estructurado RED.html">Cableado
-                                Estructurado RED</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="registro.html">Registro</a></li>
-                    </ul>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <img src="imgA/Logo.png" alt="logo" width="90">
+            <a class="navbar-brand fw-bold" href="index.html">TecnicoAngel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Manual de Convivencia.html">Manual de Convivencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Servicio.html">Servicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Producto.html">Producto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Cableado Estructurado RED.html">Cableado Estructurado RED</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="registro.html">Registro</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="register-container">
+        <div class="register-card">
+            <div class="logo-section">
+                <img src="imgA/Logo.png" alt="TecnicoAngeles">
+                <h2>Crear Cuenta</h2>
+            </div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="registerUsername">Usuario:</label>
+                    <input 
+                        type="text" 
+                        id="registerUsername" 
+                        name="username" 
+                        placeholder="Elige un usuario"
+                        autocomplete="username"
+                        required
+                    />
+                    <div class="validation-message" id="usernameMessage"></div>
                 </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Correo Electrónico:</label>
+                    <input 
+                        type="email" 
+                        id="registerEmail" 
+                        name="email" 
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                        required
+                    />
+                    <div class="validation-message" id="emailMessage"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Contraseña:</label>
+                    <input 
+                        type="password" 
+                        id="registerPassword" 
+                        name="password" 
+                        placeholder="Mínimo 6 caracteres"
+                        autocomplete="new-password"
+                        required
+                    />
+                    <div class="password-requirements">
+                        <div class="requirement unmet" id="req-length">Mínimo 6 caracteres</div>
+                        <div class="requirement unmet" id="req-letter">Contiene una letra</div>
+                        <div class="requirement unmet" id="req-number">Contiene un número</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirmar Contraseña:</label>
+                    <input 
+                        type="password" 
+                        id="registerConfirmPassword" 
+                        name="confirm_password" 
+                        placeholder="Repite tu contraseña"
+                        autocomplete="new-password"
+                        required
+                    />
+                    <div class="validation-message" id="confirmMessage"></div>
+                </div>
+
+                <button type="submit" class="btn-register" id="submitBtn" disabled>
+                    Registrarse
+                </button>
+            </form>
+
+            <div class="alert-message" id="registerMessage" role="alert"></div>
+
+            <div class="login-link">
+                ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
             </div>
-        </nav>
+        </div>
     </div>
-    <h1 class="T_01"><em>Registro de usuario</em></h1>
-    <div class="container d-flex flex-column align-items-center justify-center" style="min-height: 80vh;">
-        <form id="registerForm">
-            <div>
-                <label for="username"><strong>Usuario:</strong></label>
-                <input type="text" id="username" name="username" required />
-            </div>
 
-            <div>
-                <label for="email"><strong>Correo:</strong></label>
-                <input type="email" id="email" name="email" required />
-            </div>
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+        <p>
+            <strong>Nombre de la Empresa:</strong> TécnicoAngeles <br>
+            <strong>Nombre del Técnico:</strong> Ángel A.R.M <br>
+            <strong>Teléfono:</strong> 3175702147 o 3217633207 <br>
+            <strong>Atención:</strong> "Tu equipo queda funcionando correctamente para el mejor rendimiento". <br>
+            <a href="docs/Manual_de_Convivencia_TecnicoAngeles_Completo.pdf" download>Descargar el Manual de Convivencia en PDF</a>
+        </p>
+    </footer>
 
-            <div>
-                <label for="password"><strong>Contraseña:</strong></label>
-                <input type="password" id="password" name="password" required />
-            </div>
+    <!-- Cargar configuración primero -->
+    <script src="js/config.js"></script>
+    <!-- Luego cargar módulo de autenticación -->
+    <script src="js/auth.js"></script>
+    <script>
+        const registerForm = document.getElementById("registerForm");
+        const registerMessage = document.getElementById("registerMessage");
+        const submitBtn = document.getElementById("submitBtn");
 
-            <div>
-                <label for="confirm_password"><strong>Confirmar contraseña:</strong></label>
-                <input type="password" id="confirm_password" name="confirm_password" required />
-            </div>
+        const usernameInput = document.getElementById("registerUsername");
+        const emailInput = document.getElementById("registerEmail");
+        const passwordInput = document.getElementById("registerPassword");
+        const confirmPasswordInput = document.getElementById("registerConfirmPassword");
 
-            <button type="submit"><strong>Registrarse</strong></button>
-        </form>
+        // Validación en tiempo real
+        usernameInput.addEventListener("input", validateUsername);
+        emailInput.addEventListener("input", validateEmail);
+        passwordInput.addEventListener("input", validatePassword);
+        confirmPasswordInput.addEventListener("input", validateConfirmPassword);
 
-        <p id="registerMessage"></p>
+        function validateUsername() {
+            const username = usernameInput.value.trim();
+            const message = document.getElementById("usernameMessage");
 
-        <script src="./js/auth.js"></script>
-        <script>
-            const registerForm = document.getElementById("registerForm");
-            const registerMessage = document.getElementById("registerMessage");
+            if (username.length < 3) {
+                usernameInput.classList.remove("success");
+                usernameInput.classList.add("error");
+                message.textContent = "El usuario debe tener al menos 3 caracteres";
+                message.className = "validation-message error";
+                return false;
+            } else if (username.length > 20) {
+                usernameInput.classList.remove("success");
+                usernameInput.classList.add("error");
+                message.textContent = "El usuario no debe exceder 20 caracteres";
+                message.className = "validation-message error";
+                return false;
+            } else {
+                usernameInput.classList.remove("error");
+                usernameInput.classList.add("success");
+                message.textContent = "Usuario válido";
+                message.className = "validation-message success";
+                return true;
+            }
+        }
 
-            registerForm.addEventListener("submit", async function (event) {
-                event.preventDefault();
+        function validateEmail() {
+            const email = emailInput.value.trim();
+            const message = document.getElementById("emailMessage");
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                const username = document.getElementById("username").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const password = document.getElementById("password").value;
-                const confirm_password = document.getElementById("confirm_password").value;
+            if (!regex.test(email)) {
+                emailInput.classList.remove("success");
+                emailInput.classList.add("error");
+                message.textContent = "Correo electrónico no válido";
+                message.className = "validation-message error";
+                return false;
+            } else {
+                emailInput.classList.remove("error");
+                emailInput.classList.add("success");
+                message.textContent = "Correo válido";
+                message.className = "validation-message success";
+                return true;
+            }
+        }
 
-                const result = await registerUser({ username, email, password, confirm_password });
+        function validatePassword() {
+            const password = passwordInput.value;
+            const hasLength = password.length >= 6;
+            const hasLetter = /[a-zA-Z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+
+            document.getElementById("req-length").className = 
+                `requirement ${hasLength ? "met" : "unmet"}`;
+            document.getElementById("req-letter").className = 
+                `requirement ${hasLetter ? "met" : "unmet"}`;
+            document.getElementById("req-number").className = 
+                `requirement ${hasNumber ? "met" : "unmet"}`;
+
+            if (hasLength && hasLetter && hasNumber) {
+                passwordInput.classList.remove("error");
+                passwordInput.classList.add("success");
+                validateConfirmPassword();
+                return true;
+            } else {
+                passwordInput.classList.remove("success");
+                passwordInput.classList.add("error");
+                return false;
+            }
+        }
+
+        function validateConfirmPassword() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const message = document.getElementById("confirmMessage");
+
+            if (confirmPassword === "") {
+                confirmPasswordInput.classList.remove("success", "error");
+                message.textContent = "";
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                confirmPasswordInput.classList.remove("success");
+                confirmPasswordInput.classList.add("error");
+                message.textContent = "Las contraseñas no coinciden";
+                message.className = "validation-message error";
+                return false;
+            } else {
+                confirmPasswordInput.classList.remove("error");
+                confirmPasswordInput.classList.add("success");
+                message.textContent = "Las contraseñas coinciden";
+                message.className = "validation-message success";
+                return true;
+            }
+        }
+
+        function checkFormValidity() {
+            const isValid = 
+                validateUsername() &&
+                validateEmail() &&
+                validatePassword() &&
+                validateConfirmPassword();
+            
+            submitBtn.disabled = !isValid;
+        }
+
+        // Validar formulario cuando cambia algo
+        [usernameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+            input.addEventListener("input", checkFormValidity);
+        });
+
+        // Envío del formulario
+        registerForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirm_password = confirmPasswordInput.value;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Registrando...";
+
+            try {
+                const result = await authService.register({ 
+                    username, 
+                    email, 
+                    password, 
+                    confirm_password 
+                });
 
                 registerMessage.textContent = result.message;
-                registerMessage.style.color = result.ok ? "green" : "red";
-            });
-        </script>
+                registerMessage.className = result.ok ? "alert-message success" : "alert-message error";
 
+                if (result.ok) {
+                    registerForm.reset();
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 2000);
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Registrarse";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                registerMessage.textContent = "Error inesperado. Intenta de nuevo.";
+                registerMessage.className = "alert-message error";
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Registrarse";
+            }
+        });
+    </script>
 
-
-
-
-
-
-        <hr>
-        <footer class="bg-dark text-white text-center p-3 mt-4">
-            <p><strong>Nombre de la Empresa:</strong> TécnicoAngeles <br>
-                <strong>Nombre del Tecnico:</strong> Ángel A.R.M <br>
-                <strong>Telefono:</strong> 3175702147 o 3217633207 <br>
-                <strong>Atención:</strong> "Tu equipo queda funcionando correctamente para el mejor rendimiento". <br>
-                <a href="docs/Manual_de_Convivencia_TecnicoAngeles_Completo.pdf" download>Descargar el Manual de
-                    Convivencia
-                    en PDF</a>
-            </p>
-
-        </footer>
-        <link rel="stylesheet" href="js/logR.js">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

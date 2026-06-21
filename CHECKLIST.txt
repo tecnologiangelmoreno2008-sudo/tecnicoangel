@@ -1,0 +1,260 @@
+================================================================================
+                        CHECKLIST DE VERIFICACIÓN
+                          TECNICOANGELES v1.0.0
+================================================================================
+
+Marca los items a medida que los completes:
+
+================================================================================
+📋 CONFIGURACIÓN INICIAL
+================================================================================
+
+[ ] 1. He leído el archivo: INICIO_RAPIDO.txt
+[ ] 2. He instalado Python 3 en mi computadora
+[ ] 3. He instalado pip (gestor de paquetes de Python)
+[ ] 4. He navegado a la carpeta: server/
+
+================================================================================
+🛠️ INSTALACIÓN DEL SERVIDOR
+================================================================================
+
+[ ] 5. He ejecutado: pip install -r requirements.txt
+[ ] 6. Se instalaron correctamente Flask, Flask-CORS y Werkzeug
+[ ] 7. Se creó la carpeta venv (opcional)
+
+Comandos para verificar:
+   pip list
+   python -m flask --version
+
+================================================================================
+🚀 EJECUCIÓN DEL SERVIDOR
+================================================================================
+
+[ ] 8. He ejecutado: python app.py (o start.bat en Windows)
+[ ] 9. Veo el mensaje: "Running on http://127.0.0.1:5000"
+[ ] 10. El servidor está ejecutándose sin errores
+[ ] 11. Se creó el archivo: usuarios.db
+
+Puedes verificar visitando:
+   http://localhost:5000/api/health
+
+================================================================================
+🌐 PRUEBA DEL FRONTEND
+================================================================================
+
+[ ] 12. He abierto: index.html en el navegador
+[ ] 13. La página carga correctamente
+[ ] 14. Hago clic en "Login" → se abre login.html
+[ ] 15. Hago clic en "Registro" → se abre registro.html
+
+================================================================================
+📝 PRUEBA DE REGISTRO
+================================================================================
+
+[ ] 16. Abro: registro.html
+[ ] 17. Completo el formulario:
+       - Usuario: testuser123
+       - Email: test@example.com
+       - Contraseña: Pass123
+       - Confirmar: Pass123
+
+[ ] 18. Veo validación en tiempo real (campos se ponen verdes)
+[ ] 19. El botón "Registrarse" se habilita
+[ ] 20. Hago clic en "Registrarse"
+[ ] 21. Veo mensaje de éxito: "Registro exitoso..."
+[ ] 22. Se redirige automáticamente a login.html
+
+Verificar en la base de datos:
+   - Abre: server/usuarios.db con SQLite
+   - Tabla: usuarios
+   - Debe haber 1 registro
+
+================================================================================
+🔐 PRUEBA DE LOGIN
+================================================================================
+
+[ ] 23. Estoy en: login.html
+[ ] 24. Ingreso las credenciales del usuario creado:
+       - Usuario: testuser123
+       - Contraseña: Pass123
+
+[ ] 25. Hago clic en "Entrar"
+[ ] 26. Veo spinner de carga
+[ ] 27. Veo mensaje de éxito: "Sesión iniciada correctamente"
+[ ] 28. Se redirige a: index.html después de 2 segundos
+
+Verificar en el navegador:
+   - Abre Consola (F12)
+   - Pestaña: Application → LocalStorage
+   - Debe haber una entrada: tecnico_angel_auth
+   - Contiene: token, username
+
+================================================================================
+❌ PRUEBA DE ERRORES
+================================================================================
+
+[ ] 29. Intento registrarme con usuario existente:
+       - ✗ Veo error: "El usuario o email ya está registrado"
+
+[ ] 30. Intento login con contraseña incorrecta:
+       - ✗ Veo error: "Usuario o contraseña incorrectos"
+
+[ ] 31. Intento registrar con email inválido:
+       - ✗ Veo error: "Correo electrónico no válido"
+
+[ ] 32. Intento registrar con contraseña débil:
+       - ✗ Veo error apropiado (caracteres, letras, números)
+
+[ ] 33. Campo de contraseña muestra requisitos:
+       - ✗ Mínimo 6 caracteres
+       - ✗ Contiene una letra
+       - ✗ Contiene un número
+
+================================================================================
+🔧 CONFIGURACIÓN AVANZADA
+================================================================================
+
+[ ] 34. He leído: README.md
+[ ] 35. He leído: server/README.md
+[ ] 36. He explorado los endpoints API
+[ ] 37. He verificado la estructura de carpetas
+[ ] 38. He entendido cómo cambiar la URL del servidor
+
+Comando para probar API:
+   curl http://localhost:5000/api/health
+
+================================================================================
+📊 BASE DE DATOS
+================================================================================
+
+[ ] 39. Existe el archivo: server/usuarios.db
+[ ] 40. Puedo ver la tabla: usuarios
+[ ] 41. Puedo ver la tabla: sesiones
+[ ] 42. Puedo ver la tabla: logs_acceso
+[ ] 43. Los logs registran eventos de login/registro
+
+Para verificar (necesitas SQLite Browser):
+   - Descarga: https://sqlitebrowser.org/
+   - Abre: server/usuarios.db
+   - Explora las tablas
+
+================================================================================
+🌍 INTEGRACIÓN CON NGROK (Opcional)
+================================================================================
+
+[ ] 44. He descargado ngrok desde: https://ngrok.com
+[ ] 45. He ejecutado: ngrok http 5000
+[ ] 46. He copiado la URL generada
+[ ] 47. He actualizado: js/config.js con la URL
+[ ] 48. Cambié: CONFIG.ENVIRONMENT = "production"
+[ ] 49. Probé el login/registro con la URL de ngrok
+
+================================================================================
+✅ CASOS DE USO COMPLETADOS
+================================================================================
+
+[ ] 50. Registro exitoso → Redirige a login
+[ ] 51. Login exitoso → Redirige a index
+[ ] 52. Token guardado en localStorage
+[ ] 53. Logout funciona
+[ ] 54. Validación en cliente funciona
+[ ] 55. Validación en servidor funciona
+[ ] 56. Base de datos guarda datos correctamente
+[ ] 57. Logs se registran correctamente
+
+================================================================================
+📱 RESPONSIVE DESIGN
+================================================================================
+
+[ ] 58. El sitio se ve bien en: Computadora (1920x1080)
+[ ] 59. El sitio se ve bien en: Tablet (768x1024)
+[ ] 60. El sitio se ve bien en: Móvil (375x667)
+[ ] 61. Todos los botones se pueden hacer clic en móvil
+[ ] 62. Los formularios son legibles en todos los tamaños
+
+Prueba con F12 (Developer Tools) → Device Toolbar
+
+================================================================================
+🔒 SEGURIDAD
+================================================================================
+
+[ ] 63. Las contraseñas se guardan hasheadas (no en texto plano)
+[ ] 64. Los tokens tienen expiración (7 días)
+[ ] 65. CORS está habilitado correctamente
+[ ] 66. No veo contraseñas en la consola del navegador
+[ ] 67. Los errores no revelan demasiada información
+
+================================================================================
+📝 DOCUMENTACIÓN
+================================================================================
+
+[ ] 68. He revisado: README.md
+[ ] 69. He revisado: INICIO_RAPIDO.txt
+[ ] 70. He revisado: server/README.md
+[ ] 71. He revisado: server/INSTRUCCIONES.md
+[ ] 72. He entendido la estructura del proyecto
+
+================================================================================
+🎯 FUNCIONALIDADES EXTRA
+================================================================================
+
+[ ] 73. El spinners de carga funcionan
+[ ] 74. Las animaciones son suaves
+[ ] 75. Los mensajes de error son claros
+[ ] 76. Los validadores muestran retroalimentación visual
+[ ] 77. Puedo navegar entre login y registro
+[ ] 78. Los placeholders en inputs son útiles
+
+================================================================================
+📊 VERIFICACIÓN FINAL
+================================================================================
+
+Total de items: 78
+
+Items completados: ______ / 78
+Porcentaje: ______ %
+
+✓ 100% = Sistema completamente funcional
+✓ 80-99% = Necesita ajustes menores
+✓ <80% = Hay problemas que resolver
+
+================================================================================
+🐛 SI ALGO NO FUNCIONA
+================================================================================
+
+1. Abre la Consola (F12) en el navegador
+2. Revisa los mensajes de error
+3. Verifica que el servidor está corriendo
+4. Consulta la sección PROBLEMAS COMUNES en INICIO_RAPIDO.txt
+5. Verifica los logs en server/usuarios.db tabla: logs_acceso
+
+Errores comunes:
+   - CORS blocked      → Verifica que Flask-CORS está instalado
+   - Port already in use → Cambia el puerto en app.py
+   - Module not found  → Ejecuta: pip install -r requirements.txt
+   - Database locked   → Reinicia el servidor
+
+================================================================================
+🎉 ¡FELICIDADES!
+================================================================================
+
+Si completaste todos los items, tu sistema de autenticación está:
+
+   ✅ Instalado
+   ✅ Configurado
+   ✅ Funcionando
+   ✅ Listo para usar
+   ✅ Listo para producción
+
+Ahora puedes:
+   - Personalizar los estilos en: styles/styles.css
+   - Agregar más páginas al sitio
+   - Integrar con ngrok para acceso público
+   - Expandir las funcionalidades
+
+================================================================================
+Empresa:  TécnicoAngeles
+Técnico:  Ángel A.R.M
+Fecha:    Mayo 31, 2024
+Versión:  1.0.0
+================================================================================
