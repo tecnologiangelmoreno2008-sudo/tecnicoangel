@@ -1,15 +1,27 @@
+:root {
+    --logo-dark: #0b2f4b;
+    --logo-blue: #0d6efd;
+    --logo-cyan: #2ec5ff;
+    --logo-gold: #f4b942;
+}
+
+body {
+    background: linear-gradient(135deg, #f7fbff 0%, #eef7ff 45%, #fef8e8 100%);
+    color: var(--logo-dark);
+}
+
 .T_01 {
-    margin: 30px;
-    padding: 40px;
+    margin: 20px 0 10px;
+    padding: 0;
     text-align: center;
-    color: blue;
-    font-size: 50px;
+    color: var(--logo-dark);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
 }
 
 .T_02 {
-     color: rgb(43, 0, 255);
-     font-size: 50px;
-
+    color: var(--logo-blue);
+    font-size: 50px;
 }
 
 .P_01 {
@@ -19,6 +31,66 @@
 img {
     border-radius: 30px;
     width: 200px;
+}
+
+#formulario {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 15px 40px rgba(11, 47, 75, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.input-group {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.08);
+}
+
+.input-group-text {
+    background: linear-gradient(135deg, var(--logo-dark), var(--logo-blue));
+    color: #fff;
+    border: none;
+    min-width: 110px;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.form-control {
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    padding: 12px 14px;
+    color: var(--logo-dark);
+}
+
+.form-control:focus {
+    border-color: var(--logo-cyan);
+    box-shadow: 0 0 0 0.2rem rgba(46, 197, 255, 0.2);
+}
+
+.btn.btn-primary {
+    background: linear-gradient(135deg, var(--logo-blue), var(--logo-cyan));
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(13, 110, 253, 0.32);
+}
+
+footer {
+    border-top: 3px solid var(--logo-cyan);
+}
+
+footer a {
+    color: var(--logo-cyan);
+    font-weight: 600;
 }
 
 
